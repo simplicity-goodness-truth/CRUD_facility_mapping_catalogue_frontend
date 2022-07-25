@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:l="sap.ui.layout" id="CreateRecord">
+
+	<Dialog id="createRecordDialog" title="{i18n>createRecordDialog}">
+
+		<l:Grid defaultSpan = "L12 M12 S12" width = "auto" id = "idGrid">
+			<l:content>
+				<f:SimpleForm id="SimpleFormDisplay354" width="540px"
+					editable="false" layout="ResponsiveGridLayout" >
+					<f:content>
+						<Label text="{i18n>enterSubSystem}*" />
+						<Input id="subSystemInput" width="500px" type="Text" maxLength="100"/>
+
+						<Label text="{i18n>enterTitle}*" />
+						<Input id="titleInput" width="500px" maxLength="258"/>
+
+						<Label text="{i18n>enterRuleId}*" />
+						<Input id="ruleIdInput" width="500px" maxLength="20" showSuggestion="true"
+						suggest="handleSuggest"
+						suggestionItems="{/RulesCollectionSet}">
+						<suggestionItems>
+							<core:Item id="ruleCollectionItem" app:type="{RuleID}" text="{RuleID}"/>
+						  </suggestionItems>
+						</Input>
+					</f:content>
+				</f:SimpleForm>
+			</l:content>
+		</l:Grid>
+			<buttons>
+				<Button text="{i18n>Ok}" press="onCreateRecord"/>
+				<Button text="{i18n>Cancel}" press="onCloseCreateRecordFragment"/>
+			</buttons>
+	</Dialog>
+
+</core:FragmentDefinition>
